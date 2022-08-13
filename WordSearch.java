@@ -3,9 +3,7 @@
 //CS 145
 //Word Search Assignment
 //
-//Coded in IntelliJ. GitHub is operational.
-//Only thing wrong: If word is placed onto grid and runs into other word, the start of the first word
-//will show up in the solution until it runs into the other word.
+//Coded in IntelliJ.
 
 import java.util.Queue;
 import java.util.Random;

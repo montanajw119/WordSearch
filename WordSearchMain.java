@@ -3,8 +3,7 @@
 //CS 145
 //Word Search Assignment
 //
-//Coded in IntelliJ. GitHub is operational.
-//Crash-proof as far as I know?
+//Coded in IntelliJ.
 
 import java.util.Scanner;
 import java.util.Queue;

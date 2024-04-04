@@ -3,7 +3,9 @@
 //CS 145
 //Word Search Assignment
 //
-//Coded in IntelliJ.
+//Coded in IntelliJ. GitHub is operational.
+//Only thing wrong: If word is placed onto grid and runs into other word, the start of the first word
+//will show up in the solution until it runs into the other word.
 
 import java.util.Queue;
 import java.util.Random;
@@ -79,30 +81,42 @@ public class WordSearch {
     //Requires a string word to place, and starting x and y coordinates
     public void placeWordVert(String word,int xCord,int yCord){
         char letter;
-        for(int i=0; i<word.length(); i++){
-            if(wordSearchGrid[xCord][yCord+i]==0) {
-                letter = Character.toLowerCase(word.charAt(i));
-                wordSearchGrid[xCord][yCord + i] = letter;
-                wordSearchSolution[xCord][yCord+i]=letter;
-            }else{
+
+        //Check if there is room for the word
+        for(int i=0; i<word.length(); i++) {
+            if (wordSearchGrid[xCord][yCord + i] != 0) {
                 allWords.add(word);
-                break;
-            }//end if
+                return;
+            }
+        }
+
+        //Once sure there is room, place the word
+        for(int i=0; i<word.length(); i++){
+            letter = Character.toLowerCase(word.charAt(i));
+            wordSearchGrid[xCord][yCord + i] = letter;
+            wordSearchSolution[xCord][yCord+i]=letter;
         }//end for
+
     }//end placeWordVert
 
     //Places words horizontally into the grids
     //Requires a string word to place, and starting x and y coordinates
     public void placeWordHorz(String word,int xCord,int yCord){
         char letter;
-        for(int i=0; i<word.length(); i++){
-            if(wordSearchGrid[xCord+i][yCord]==0) {
-                letter = Character.toLowerCase(word.charAt(i));
-                wordSearchGrid[xCord+i][yCord] = letter;
-                wordSearchSolution[xCord+i][yCord] = letter;
-            }else{
+
+        //Check if there is room for the word
+        for(int i=0; i<word.length(); i++) {
+            if (wordSearchGrid[xCord+i][yCord] != 0) {
                 allWords.add(word);
+                return;
             }
+        }
+
+        //Once you know there's room, place that word!
+        for(int i=0; i<word.length(); i++){
+            letter = Character.toLowerCase(word.charAt(i));
+            wordSearchGrid[xCord+i][yCord] = letter;
+            wordSearchSolution[xCord+i][yCord] = letter;
         }//end for
     }//end placeWordVert
 
